@@ -1,0 +1,29 @@
+.comment-item-view { 
+	@include grid-row();
+	margin-bottom: $large-spacer;
+	padding-bottom: $large-spacer;
+	padding-left: 0;
+	padding-right: 0;
+
+	.comment-date {
+		@include grid-column(12);
+		padding: 5px 0;
+		color: $secondary-font-color;
+		font-size: $x-smaller-font;
+		text-align: center;
+		@media #{$medium-up} {
+			text-align: right;
+		}
+	}
+
+	.comment-body {
+		@include grid-column(12);
+		background-color: $darker-summary-background;
+		padding: 10px;
+		@media #{$medium-up} {
+			@include grid-column(10);
+			background: $summary-background;
+			box-shadow: 1px 1px 8px $primary-border-color;
+		}
+	}
+}

@@ -1,0 +1,38 @@
+BODY {
+	font-family: Verdana, san-serf;
+	font-size: $smaller-font;
+}
+
+A {
+	color: $anchor-color;
+	text-decoration: none;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: $anchor-color;
+	}
+}
+
+#primary-view-container {
+	@include grid-column(12);
+	margin-top: $x-small-spacer;
+	margin-bottom: $x-small-spacer;
+}
+
+#secondary-view-container {
+	@include grid-column(12);
+	text-align: center;
+	margin-top: $small-spacer;
+	margin-bottom: $small-spacer;
+}
+
+.open {
+	color: $open-issue-color;
+}
+
+.closed {
+	color: $closed-issue-color;
+}

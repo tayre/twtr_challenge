@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GitHub Issue Viewer</title>
+		<link rel="stylesheet" href="css/style.css"><!-- Using :compressed sass output. See sass/ directory for stylesheet source. -->
+	</head>
+	<body>
+
+		<!-- the main application container -->
+		<div class = "container">
+			<div class="row"> <!-- We're going to build our layout using Foundation mixins. Wrap everything in a .row to start. -->
+				<div id = "secondary-view-container"></div>
+				<div id = "primary-view-container"></div>
+			</div>
+		</div>
+
+		<!-- 
+		For now we will place underscore templates in the index file, rather than making GET request to external files. 
+		I want to ensure this app runs from disk (avoiding any cross domain requests to the file system).
+		In reality we would build these templates into our rendered document, or use require.js.
+		-->
+		<script type="text/template" id="label-tmpl">
+			<%	_.each(labels, function(item){ %>
+					<li class = "label" style = "color:<%= Utils.colorConstrast(item.color) %>; background-color: #<%= item.color %>" ><span><%= item.name %></span></li>
+			<%	}); %>
+		</script>
+
+		<script type="text/template" id="pager-tmpl">
+			<% if (typeof(prevPage) !== "undefined") { %> <!-- //enable previous page button -->
+				<a class = "pageButton" href = "#/page<%= prevPage.url.substring(prevPage.url.indexOf('?')) %>">previous</a>
+			<% } else { %> <!-- // disable previous page button -->
+				<a class = "pageButton disabled">previous</a>
+			<% } %>
+
+			<% if (typeof(nextPage) !== "undefined") { %> <!-- //enable next page button -->
+				<a class = "pageButton" href = "#/page<%= nextPage.url.substring(nextPage.url.indexOf('?')) %>">next</a>
+			<% } else { %> <!-- //disable previous page button -->
+				<a class = "pageButton disabled">next</a>
+			<% } %>
+		</script>
+
+		<script type="text/template" id="reporter-tmpl">
+			<div class = "gravatar-container">
+				<img class = "gravatar" src=<%= avatar_url %>/>
+			</div>
+			<div class = "login-container">
+				<a href = "<%= html_url %>" title = "<%= html_url %>"><span><%= login %></span></</a>
+			</div>
+		</script>
+
+		<script type="text/template" id="issue-meta-info-tmpl">
+			<div class = "issue-number-container">
+				<span>#<%= number %></span>
+			</div>
+			<div class = "issue-title-container">
+				<a href="#/details/<%= number %>" title = "Issue #<%= number %>"><%= title %></a>
+			</div>
+			<div class = "issue-state-container">
+				<span class = <%= state %>><%= state %></span>
+			</div>
+		</script>
+
+		<script type="text/template" id="detailed-issue-meta-info-tmpl">
+			<div class = "issue-state-container">
+				<span  class = <%= state %>><%= state %></span>
+			</div>
+			<div class = "issue-title-container">
+				<h2>#<%= number %>: <span><%= title %></span></h2>
+			</div>
+		</script>
+
+		<script type="text/template" id="comment-item-tmpl">
+			<div class = "comment-date"><span><% print((new Date(created_at)).formatDate("yyyy/MM/dd hh:mmt")) %></span></div>
+			<div class = "reporter-view">
+				<div class = "gravatar-container">
+					<img class = "gravatar" src=<%= user.avatar_url %>/>
+				</div>
+
+				<div class = "login-container">
+					<a href = "<%= html_url %>"><span><%= user.login %></span></a>
+				</div>
+			</div>
+			<div class = "comment-body"><%= marked(body) %> </div>
+		</script>
+
+		<script type="text/template" id="short-summary-tmpl"><div class = "summary-container"><%= marked(truncatedText) %></script>
+		
+		<script type="text/template" id="full-summary-tmpl"><%= marked(body) %></script>
+
+		<script src="lib/formatdate/formatdate.js"></script>
+		<script src="lib/jquery/2.1.4/jquery.min.js"></script>
+		<script src="lib/json2/20150503/json2.min.js"></script>
+		<script src="lib/underscore/1.8.3/underscore.min.js"></script>
+		<script src="lib/backbone/1.2.1/backbone.min.js"></script>
+		<script src="lib/marked/0.3.2/marked.min.js"></script>
+
+		<!-- In production these source files would be concatenated and minified -->
+		<script src="src/config.js"></script>
+		
+		<script src="src/models/issueModel.js"></script>
+		<script src="src/models/pagerModel.js"></script>
+		<script src="src/models/shortSummaryModel.js"></script>
+		<script src="src/models/commentModel.js"></script>
+		
+		<script src="src/views/pagerView.js"></script>
+		<script src="src/views/detailedIssueView.js"></script>
+		<script src="src/views/issueView.js"></script>
+		<script src="src/views/issueListView.js"></script>
+		<script src="src/views/labelView.js"></script>
+		<script src="src/views/reporterView.js"></script>
+		<script src="src/views/shortSummaryView.js"></script>
+		<script src="src/views/issueMetaInfoView.js"></script>
+		<script src="src/views/detailedIssueMetaInfoView.js"></script>
+		<script src="src/views/fullSummaryView.js"></script>
+		<script src="src/views/commentView.js"></script>
+		<script src="src/views/commentListView.js"></script>
+
+		<script src="src/utils/utils.js"></script>
+		<script src="src/viewManager.js"></script>
+		<script src="src/routers/router.js"></script>
+		<script src="src/main.js"></script>
+
+	</body>
+</html>
+

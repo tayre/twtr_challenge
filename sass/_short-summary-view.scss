@@ -1,0 +1,19 @@
+.short-summary-view {
+	@include grid-column(12);
+	padding: 0;
+
+	@media #{$medium-up} {
+		@include grid-column(8);
+	}
+
+	.summary-container {
+		background-color: $darker-summary-background;
+		padding: 10px;
+		
+		@media #{$medium-up} {
+			border-radius: 3px;
+			box-shadow: 1px 1px 5px $shadow;
+			background-color: $summary-background;
+		}
+	}
+}

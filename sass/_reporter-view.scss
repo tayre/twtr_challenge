@@ -1,0 +1,20 @@
+.reporter-view {
+	@include grid-column(12);
+	text-align: center;
+
+	@media #{$medium-up} {
+		@include grid-column(2);
+	}
+
+	.gravatar-container {
+		IMG {
+			border-radius: 5px;
+			max-width: 100px;
+			@media #{$medium-up} {
+				max-width: 50px;
+			}
+			box-shadow: 1px 1px 5px $shadow;
+		}
+		margin-bottom: 5px;
+	}
+}

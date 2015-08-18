@@ -1,0 +1,6 @@
+.issuelist-item-view {
+	@include grid-row();
+	margin-bottom: $large-spacer;
+	padding-bottom: $large-spacer;
+	border-bottom: 1px solid $primary-border-color;
+}

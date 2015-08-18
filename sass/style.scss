@@ -1,0 +1,21 @@
+// this file includes settings, foundations, and all our styles
+@import "../lib/foundation/settings";
+
+// selectively include Foundations components
+@import
+   "../lib/foundation/components/forms",
+   "../lib/foundation/components/grid",
+   "../lib/foundation/components/inline-lists";
+
+// custom components
+@import "variables";
+@import "common";
+@import "issuelist-item-view";
+@import "label-view";
+@import "comment-item-view";
+@import "issue-meta-info-view";
+@import "detailed-issue-meta-info-view";
+@import "full-summary-view";
+@import "reporter-view";
+@import "pager-view";
+@import "short-summary-view";

@@ -1,0 +1,39 @@
+.issue-meta-info-view  {
+	@include grid-row();
+
+	@media #{$medium-up} {
+		padding-bottom: $small-spacer;
+	}
+
+	.issue-title-container {
+		@include grid-column(12);
+		padding: 0;
+		text-align: center;
+		@media #{$medium-up} {
+			text-align: left;
+			@include grid-column(8);
+		}
+	}
+
+	.issue-state-container {
+		@include grid-column(12);
+		padding: 0;
+		visibility: hidden;
+		@media #{$medium-up} {
+			@include grid-column(2);
+			text-align: right;
+			visibility: visible;
+		}
+	}
+
+	.issue-number-container {
+		@include grid-column(12);
+		padding: 0;
+		text-align: center;
+		font-size: $larger-font;
+		@media #{$medium-up} {
+			@include grid-column(2);
+			font-size: $smaller-font;
+		}
+	}
+}

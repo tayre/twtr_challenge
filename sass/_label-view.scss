@@ -1,0 +1,16 @@
+.label-view {
+	@include grid-column(12);
+	@include inline-list;
+	margin: 0 0 $x-small-spacer 0;
+	font-size: $x-smaller-font;
+
+	.label {
+		@media #{$medium-up} {
+			float: right;
+		}
+		margin: 5px;
+		padding: 5px;
+		border-radius: 1px;
+		border: 1px solid $primary-border-color;
+	}
+}

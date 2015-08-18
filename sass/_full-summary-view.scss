@@ -1,0 +1,14 @@
+.full-summary-view {
+	@include grid-column(12);
+	overflow: auto;
+	background-color: $darker-summary-background;
+	margin-bottom: $large-spacer;
+	padding-bottom: $large-spacer;
+
+	@media #{$medium-up} {
+		@include grid-column(10);
+		background: $summary-background;
+		margin-bottom: $large-spacer;
+		box-shadow: 1px 1px 8px $primary-border-color;
+	}
+}

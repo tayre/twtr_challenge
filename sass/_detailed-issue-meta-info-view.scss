@@ -1,0 +1,19 @@
+.detailed-issue-meta-info-view {
+	@include grid-row();
+	margin-bottom: $small-spacer;
+
+	.issue-title-container {
+		@include grid-column(12);
+		padding: 0;
+		border-bottom: 1px solid $primary-border-color;
+	}
+
+	.issue-state-container {
+		@include grid-column(12);
+		text-align: right;
+		visibility: hidden;
+		@media #{$medium-up} {
+			visibility: visible;
+		}
+	}
+}
