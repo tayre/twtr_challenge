@@ -14,7 +14,7 @@ var PagerModel = Backbone.Model.extend({
 	},
 
 	// linkHeaderStr is the string value from Link HTTP response header @see http://tools.ietf.org/html/rfc5988
-	// return a link object associated with the provided rel value, undefined otherwise.
+	// return a link object associated with the provided rel value, undefined otherwise
 	parseLinkHeader: function(linkHeaderStr, relValue) {
 
 		var linkHeader = linkHeaderStr.split(',');

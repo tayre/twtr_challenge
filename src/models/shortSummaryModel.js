@@ -11,7 +11,7 @@ var ShortSummaryModel = Backbone.Model.extend({
 		});
 	},
 
-	// returns the first maxlength characters of text, ending on a word boundary, and appends an ellipses;
+	// returns the first maxlength characters of text, ending on a word boundary, and appends an ellipses
 	truncateText: function(str, maxlength) {
 		var result = str;
 

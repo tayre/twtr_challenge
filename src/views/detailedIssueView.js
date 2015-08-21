@@ -1,4 +1,4 @@
-// view for displaying detailed issue, which contains subviews for the reporter, labels, full summary, comments, etc ...
+// view for displaying detailed issue, which contains subviews for the reporter, labels, full summary, comments, etc.
 var DetailedIssueView = Backbone.View.extend({
 
 	initialize: function() {

@@ -1,4 +1,4 @@
-// view for displaying and single issue, which contains subviews for the reporter, labels, truncated summary, etc ...
+// view for displaying and single issue, which contains subviews for the reporter, labels, truncated summary, etc.
 var IssueView = Backbone.View.extend({
 
 	className: 'issuelist-item-view',
