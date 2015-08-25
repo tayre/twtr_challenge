@@ -11,7 +11,11 @@ var IssueView = Backbone.View.extend({
 		this.$el.append(labelView.render().$el);
 
 		// Append the issue title and number to this view.
-		var issueMetaInfoView = new IssueMetaInfoView({ title: this.model.get('title'), number: this.model.get('number'), state: this.model.get('state') });
+		var issueMetaInfoView = new IssueMetaInfoView({
+			title: this.model.get('title'),
+			number: this.model.get('number'),
+			state: this.model.get('state')
+		});
 		this.$el.append(issueMetaInfoView.render().$el);
 
 		// Append a reporter to this view.
@@ -22,8 +26,12 @@ var IssueView = Backbone.View.extend({
 		// Append summary text to this view.
 		var summaryText = this.model.get('body');
 		if (summaryText !== null && summaryText.length > 0) {
-			var shortSummaryModel = new ShortSummaryModel({ text: summaryText }); // This model will handle truncating the summary text.
-			var shortSummaryView = new ShortSummaryView({ model: shortSummaryModel });
+			var shortSummaryModel = new ShortSummaryModel({
+				text: summaryText
+			});
+			var shortSummaryView = new ShortSummaryView({
+				model: shortSummaryModel
+			});
 			this.$el.append(shortSummaryView.render().$el);
 		}
 

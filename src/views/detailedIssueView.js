@@ -12,9 +12,13 @@ var DetailedIssueView = Backbone.View.extend({
 	render: function() {
 
 		$('#secondary-view-container').hide(); // Do not show page controls on detailed issue page.
-		
+
 		// Append the issue title, state, and number to this view.
-		var detailedIssueMetaInfoView = new DetailedIssueMetaInfoView({ title: this.model.get('title'), number: this.model.get('number'), state: this.model.get('state') });
+		var detailedIssueMetaInfoView = new DetailedIssueMetaInfoView({
+			title: this.model.get('title'),
+			number: this.model.get('number'),
+			state: this.model.get('state')
+		});
 		this.$el.append(detailedIssueMetaInfoView.render().$el);
 
 		// Append labels to this view.
@@ -30,7 +34,9 @@ var DetailedIssueView = Backbone.View.extend({
 		// Append the complete summary text to this view.
 		var summaryText = this.model.get('body');
 		if (summaryText.length > 0) {
-			var fullSummaryView = new FullSummaryView({ 'body': summaryText });
+			var fullSummaryView = new FullSummaryView({
+				'body': summaryText
+			});
 			this.$el.append(fullSummaryView.render().$el);
 		}
 

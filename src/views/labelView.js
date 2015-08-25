@@ -11,7 +11,9 @@ var LabelView = Backbone.View.extend({
 	},
 
 	render: function() {
-		var labels = { labels: this.options };
+		var labels = {
+			labels: this.options
+		};
 		var html = this.template(labels);
 		this.$el.html(html);
 		return this;

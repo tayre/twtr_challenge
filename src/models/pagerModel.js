@@ -8,8 +8,12 @@ var PagerModel = Backbone.Model.extend({
 
 	initialize: function() {
 		if (this.get('linkHeader')) {
-			this.set({ nextPage: this.parseLinkHeader(this.get('linkHeader'), 'next') });
-			this.set({ prevPage: this.parseLinkHeader(this.get('linkHeader'), 'prev') });
+			this.set({
+				nextPage: this.parseLinkHeader(this.get('linkHeader'), 'next')
+			});
+			this.set({
+				prevPage: this.parseLinkHeader(this.get('linkHeader'), 'prev')
+			});
 		}
 	},
 

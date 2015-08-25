@@ -11,8 +11,13 @@ var IssueListView = Backbone.View.extend({
 	getData: function() {
 		this.collection.fetch({
 			success: function(collection, response, options) {
-				var pagerModel = new PagerModel({ linkHeader: options.xhr.getResponseHeader('Link') });
-				var pagerView = new PagerView({ model: pagerModel, parentSelector: '#secondary-view-container' });
+				var pagerModel = new PagerModel({
+					linkHeader: options.xhr.getResponseHeader('Link')
+				});
+				var pagerView = new PagerView({
+					model: pagerModel,
+					parentSelector: '#secondary-view-container'
+				});
 				pagerView.render();
 			}
 		});
@@ -22,7 +27,9 @@ var IssueListView = Backbone.View.extend({
 		$('#secondary-view-container').show();
 
 		this.collection.each(function(model) { // For each model in collection, bind an issue view and append to this' container.
-			var item = new IssueView({ model: model });
+			var item = new IssueView({
+				model: model
+			});
 			this.$el.append((item.render().$el));
 		}, this);
 

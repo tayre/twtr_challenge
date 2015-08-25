@@ -1,10 +1,10 @@
 Router = Backbone.Router.extend({
 
 	routes: {
-		'': 				'home',
+		'':					'home',
 		'page?*query':		'page',
 		'details/:number':	'details',
-		'*splat':			'default'
+		'*splat': 			'default'
 	},
 
 	// The router will have an instance of view manager, to orchestrate view cleanup.
