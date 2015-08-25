@@ -1,4 +1,4 @@
-//  object to manage view (i.e., "page") transitions in our single page app
+// This object manages view (i.e., "page") transitions in our single page application.
 function ViewManager() {
 
 	this.currentView = null;

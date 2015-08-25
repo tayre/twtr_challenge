@@ -1,7 +1,7 @@
-// an individual issue
+// This model represents an individual GitHub issue.
 var IssueModel = Backbone.Model.extend({});
 
-// collection of issues
+// Maintain a collection of issue models.
 var IssueCollection = Backbone.Collection.extend({
 	model: IssueModel
 });

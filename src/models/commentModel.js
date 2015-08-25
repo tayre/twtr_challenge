@@ -1,7 +1,7 @@
-// an individual comment
+// This model represents an individual GitHub comment.
 var CommentModel = Backbone.Model.extend({});
 
-// collection of comments
+// Maintain a collection of comment models.
 var CommentCollection = Backbone.Collection.extend({
 	model: CommentModel
 });

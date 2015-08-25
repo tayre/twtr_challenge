@@ -1,4 +1,4 @@
-// view to display a GitHub user
+// This view renders a GitHub user.
 var ReporterView = Backbone.View.extend({
 
 	className: 'reporter-view',

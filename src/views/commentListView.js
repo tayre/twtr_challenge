@@ -1,4 +1,4 @@
-// view for rendering a list of all comments
+// This view renders a list of all comments.
 var CommentListView = Backbone.View.extend({
 
 	initialize: function(options) {

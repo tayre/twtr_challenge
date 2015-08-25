@@ -1,4 +1,4 @@
-// view for displaying full issue summary
+// This view renders a full issue summary.
 var FullSummaryView = Backbone.View.extend({
 
 	className: 'full-summary-view',

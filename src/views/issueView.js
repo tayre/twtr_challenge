@@ -1,28 +1,28 @@
-// view for displaying and single issue, which contains subviews for the reporter, labels, truncated summary, etc.
+// This view renders a single issue, which contains sub-views for the reporter, labels, truncated summary, etc.
 var IssueView = Backbone.View.extend({
 
 	className: 'issuelist-item-view',
 
 	render: function() {
 
-		// append labels
+		// Append labels to this view.
 		var labels = this.model.get('labels');
 		var labelView = new LabelView(labels);
 		this.$el.append(labelView.render().$el);
 
-		// append title and number
+		// Append the issue title and number to this view.
 		var issueMetaInfoView = new IssueMetaInfoView({ title: this.model.get('title'), number: this.model.get('number'), state: this.model.get('state') });
 		this.$el.append(issueMetaInfoView.render().$el);
 
-		// append reporter
+		// Append a reporter to this view.
 		var reporter = this.model.get('user');
 		var reporterView = new ReporterView(reporter);
 		this.$el.append(reporterView.render().$el);
 
-		// append summary text
+		// Append summary text to this view.
 		var summaryText = this.model.get('body');
 		if (summaryText !== null && summaryText.length > 0) {
-			var shortSummaryModel = new ShortSummaryModel({ text: summaryText }); // this model will handle truncating the text
+			var shortSummaryModel = new ShortSummaryModel({ text: summaryText }); // This model will handle truncating the summary text.
 			var shortSummaryView = new ShortSummaryView({ model: shortSummaryModel });
 			this.$el.append(shortSummaryView.render().$el);
 		}

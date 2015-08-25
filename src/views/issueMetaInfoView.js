@@ -1,4 +1,4 @@
-// view for displaying standard issue information: title, number, etc.
+// This view renders standard issue information: title, number, etc.
 var IssueMetaInfoView = Backbone.View.extend({
 
 	className: 'issue-meta-info-view',

@@ -1,4 +1,4 @@
-// view for displaying an issue's labels
+// This view renders an issue's labels.
 var LabelView = Backbone.View.extend({
 
 	className: 'label-view',

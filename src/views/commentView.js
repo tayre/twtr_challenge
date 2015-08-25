@@ -1,4 +1,4 @@
-// view for displaying and single comment
+// This view renders a single GitHub comment.
 var CommentView = Backbone.View.extend({
 
 	className: 'comment-item-view',

@@ -1,4 +1,4 @@
-// view to display a a short summary
+// This view renders an issue's "teaser" summary.
 var ShortSummaryView = Backbone.View.extend({
 
 	className: 'short-summary-view',

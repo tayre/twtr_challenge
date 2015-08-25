@@ -1,11 +1,11 @@
-// view for rendering a list of all issues items
+// This view renders a list of all issues items.
 var IssueListView = Backbone.View.extend({
 
 	className: 'issuelist-view',
 
 	initialize: function(options) {
 		this.parentSelector = options.parentSelector;
-		this.listenTo(this.collection, 'sync', this.render); // render this view after fetching data
+		this.listenTo(this.collection, 'sync', this.render); // Once data has been fetched, we can render it to the DOM.
 	},
 
 	getData: function() {
@@ -21,13 +21,11 @@ var IssueListView = Backbone.View.extend({
 	render: function() {
 		$('#secondary-view-container').show();
 
-		// for each model in collection, bind a issue view and append to this' container
-		this.collection.each(function(model) {
+		this.collection.each(function(model) { // For each model in collection, bind an issue view and append to this' container.
 			var item = new IssueView({ model: model });
 			this.$el.append((item.render().$el));
 		}, this);
 
-		// write to the DOM
 		$(this.parentSelector).html(this.$el.html());
 
 		return this;

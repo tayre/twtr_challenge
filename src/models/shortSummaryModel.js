@@ -1,8 +1,8 @@
-// a model for teaser summaries
+// This is the model containing data for an issue's "teaser" summary.
 var ShortSummaryModel = Backbone.Model.extend({
 	defaults: {
-		truncatedText: '', // the shortened text summary
-		text: '' // the full text summary
+		truncatedText: '', // The shortened text summary.
+		text: '' // The full text summary.
 	},
 
 	initialize: function() {
@@ -11,7 +11,7 @@ var ShortSummaryModel = Backbone.Model.extend({
 		});
 	},
 
-	// returns the first maxlength characters of text, ending on a word boundary, and appends an ellipses
+	// Returns the first maxlength characters of text, ending on a word boundary, and append an ellipses.
 	truncateText: function(str, maxlength) {
 		var result = str;
 

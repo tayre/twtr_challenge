@@ -1,4 +1,4 @@
-// view  for displaying page controls
+// This view renders page controls for the application.
 var PagerView = Backbone.View.extend({
 
 	template: _.template($('#pager-tmpl').length > 0 ? $('#pager-tmpl').html() : ''),
