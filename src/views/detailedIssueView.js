@@ -11,7 +11,8 @@ var DetailedIssueView = Backbone.View.extend({
 
 	render: function() {
 
-		$('#secondary-view-container').hide(); // Do not show page controls on detailed issue page.
+		var backButtonView = new BackButtonView();
+		$('#secondary-view-container').html(backButtonView.render().$el);
 
 		// Append the issue title, state, and number to this view.
 		var detailedIssueMetaInfoView = new DetailedIssueMetaInfoView({

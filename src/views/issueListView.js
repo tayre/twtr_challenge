@@ -24,7 +24,6 @@ var IssueListView = Backbone.View.extend({
 	},
 
 	render: function() {
-		$('#secondary-view-container').show();
 
 		this.collection.each(function(model) { // For each model in collection, bind an issue view and append to this' container.
 			var item = new IssueView({
